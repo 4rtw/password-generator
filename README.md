@@ -11,4 +11,8 @@ This is just a simple password generator made with `ReactJs`.
 3. Type `npm start` to start project
 4. Go to `http://localhost:3000`
 
+## Check my app in the link below
+
+[Simple password generator]("https://4rtw.github.io/password-generator")
+
 
