@@ -6,6 +6,7 @@ import {
   Snackbar,
   TextField,
   Typography,
+  Link
 } from "@mui/material";
 import { useEffect, useState, useCallback } from "react";
 import RefreshIcon from "@mui/icons-material/Refresh";
@@ -67,8 +68,9 @@ const PasswordGenerator = ({ setTheme }) => {
       sx={{ padding: 15 }}
     >
       <Grid item xs={12}>
-        <Typography variant="h5">
-          Just a simple password generator. Nothing less, nothing more ;)
+        <Typography variant="h5" textAlign={"center"}>
+          Just a simple password generator. Nothing less, nothing more ;) <br />
+          Check my code <Link href="https://github.com/4rtw/password-generator">here</Link>.
         </Typography>
       </Grid>
       <Grid item xs={12}>
