@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import PasswordGenerator from "./PasswordGenerator";
+import { useMemo, useState } from "react";
+import {
+  createTheme,
+  CssBaseline,
+  ThemeProvider,
+  useMediaQuery,
+} from "@mui/material";
+import { cookieService } from "./Service/CookieService";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+const App = () => {
+  // handle dark mode
+  const [darkMode, setDarkMode] = useState(
+    cookieService.getCookie("darkMode") || "dark"
   );
-}
+
+  const setMode = (mode) => {
+    cookieService.setCookie("darkMode", mode);
+    setDarkMode(mode);
+  };
+
+  const prefersDarkMode = useMediaQuery(`(prefers-color-scheme: ${darkMode})`);
+
+  const toogleDarkMode = () => {
+    darkMode === "light" ? setMode("dark") : setMode("light");
+  };
+
+  const theme = useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode: prefersDarkMode ? "dark" : "light",
+        },
+      }),
+    [prefersDarkMode]
+  );
+  // end handle dark mode
+
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <PasswordGenerator setTheme={() => toogleDarkMode()} />
+    </ThemeProvider>
+  );
+};
 
 export default App;
