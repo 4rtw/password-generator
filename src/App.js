@@ -1,5 +1,5 @@
 import PasswordGenerator from "./PasswordGenerator";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import {
   createTheme,
   CssBaseline,
@@ -9,6 +9,11 @@ import {
 import { cookieService } from "./Service/CookieService";
 
 const App = () => {
+  //Tab title
+  useEffect(() => {
+    document.title = "Password generator";
+  }, []);
+
   // handle dark mode
   const [darkMode, setDarkMode] = useState(
     cookieService.getCookie("darkMode") || "dark"
