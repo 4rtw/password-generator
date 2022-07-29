@@ -13,6 +13,6 @@ This is just a simple password generator made with `ReactJs`.
 
 ## Check my app in the link below
 
-[Simple password generator]("https://4rtw.github.io/password-generator")
+[Simple password generator](https://4rtw.github.io/password-generator)
 
 
